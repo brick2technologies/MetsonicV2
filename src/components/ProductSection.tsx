@@ -53,7 +53,7 @@ export default function Products() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-3 sm:mb-4 px-4">
             Our <span className="text-red-600">Products</span>
           </h2>
           <div className="w-16 sm:w-20 md:w-24 h-1 bg-red-600 mx-auto mb-4 sm:mb-5 md:mb-6"></div>
@@ -86,7 +86,7 @@ export default function Products() {
 
               {/* Content Section */}
               <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-5 md:mb-6 leading-tight">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-900 mb-4 sm:mb-5 md:mb-6 leading-tight">
                   {products[currentIndex].title}
                 </h3>
                 <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
@@ -103,7 +103,7 @@ export default function Products() {
           {/* Navigation Arrows - Hidden on Mobile, Visible on Tablet+ */}
           <button
             onClick={prevSlide}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 lg:-translate-x-16 bg-white hover:bg-red-600 text-gray-800 hover:text-white rounded-full p-3 lg:p-4 shadow-xl transition-all duration-300 hover:scale-110 z-10 items-center justify-center"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 lg:-translate-x-16 bg-white hover:bg-red-600 text-blue-900 hover:text-white rounded-full p-3 lg:p-4 shadow-xl transition-all duration-300 hover:scale-110 z-10 items-center justify-center"
             aria-label="Previous product"
           >
             <ChevronLeft size={28} strokeWidth={2.5} />

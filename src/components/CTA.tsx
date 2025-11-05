@@ -52,7 +52,7 @@ export default function CTASection() {
         {/* Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-10">
           {/* Phone Card */}
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+          <div className="bg-blue-900 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                 <Phone className="w-5 h-5 text-white" />
@@ -65,7 +65,7 @@ export default function CTASection() {
           </div>
 
           {/* Email Card */}
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+          <div className="bg-blue-900 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                 <Mail className="w-5 h-5 text-white" />
@@ -78,7 +78,7 @@ export default function CTASection() {
           </div>
 
           {/* Location Card */}
-          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+          <div className="bg-blue-900 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

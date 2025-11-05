@@ -284,7 +284,7 @@ export default function ProductsPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-red-900 to-black">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-red-900 to-black">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -335,7 +335,7 @@ export default function ProductsPage() {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-4">
               Product <span className="text-red-600">Catalog</span>
             </h2>
             <div className="w-24 h-1 bg-red-600 mx-auto"></div>
@@ -375,7 +375,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {currentProducts.map((product) => (
               <div
                 key={product.id}
@@ -393,7 +393,7 @@ export default function ProductsPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                  <h3 className="text-xl font-bold text-blue-900 mb-2">{product.name}</h3>
                   <p className="text-gray-600 mb-4 line-clamp-2">{product.description}</p>
                   <ul className="space-y-1 mb-4">
                     {product.features.slice(0, 2).map((feature, idx) => (
@@ -413,7 +413,7 @@ export default function ProductsPage() {
 
           {filteredProducts.length === 0 && (
             <div className="text-center py-16">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">No products found</h3>
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">No products found</h3>
               <p className="text-gray-600">Try adjusting your search or filters.</p>
             </div>
           )}
@@ -485,7 +485,7 @@ export default function ProductsPage() {
 
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
-                <h2 className="text-3xl font-bold text-gray-900">{selectedProduct.name}</h2>
+                <h2 className="text-3xl font-bold text-blue-900">{selectedProduct.name}</h2>
                 <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-bold">
                   {selectedProduct.category}
                 </span>
@@ -495,7 +495,7 @@ export default function ProductsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-3">Key Features</h4>
+                  <h4 className="font-bold text-blue-900 mb-3">Key Features</h4>
                   <ul className="space-y-2">
                     {selectedProduct.features.map((feature: string, idx: number) => (
                       <li key={idx} className="text-gray-600 flex items-start">
@@ -507,7 +507,7 @@ export default function ProductsPage() {
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-3">Specifications</h4>
+                  <h4 className="font-bold text-blue-900 mb-3">Specifications</h4>
                   <ul className="space-y-2">
                     {selectedProduct.specs.map((spec: string, idx: number) => (
                       <li key={idx} className="text-gray-600 text-sm">
@@ -543,7 +543,7 @@ export default function ProductsPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
               Why Choose <span className="text-red-600">Metsonic</span> Products?
             </h2>
             <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>

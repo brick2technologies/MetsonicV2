@@ -28,7 +28,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-red-900 to-black">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-red-900 to-black">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -79,7 +79,7 @@ export default function AboutPage() {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-4">
               Our <span className="text-red-600">Story</span>
             </h2>
             <div className="w-24 h-1 bg-red-600 mx-auto"></div>
@@ -87,7 +87,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="space-y-6 animate-fade-in-left">
-              <h3 className="text-3xl font-bold text-gray-900">Building Excellence Since 1992</h3>
+              <h3 className="text-3xl font-bold text-blue-900">Building Excellence Since 1992</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Founded in <strong className="text-red-600">April 1992</strong>, Metsonic Engineers Pvt. Ltd. began with a clear mission: to deliver world-class testing equipment and non-destructive testing instruments to Defence, Research, and Industrial organizations across India.
               </p>
@@ -138,7 +138,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
               How We're <span className="text-red-600">Growing</span>
             </h2>
             <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
@@ -152,7 +152,7 @@ export default function AboutPage() {
               <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Award className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Excellence</h3>
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Quality Excellence</h3>
               <p className="text-gray-600">Delivering premium testing equipment with uncompromising quality standards</p>
             </div>
 
@@ -160,7 +160,7 @@ export default function AboutPage() {
               <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Users className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Expert Team</h3>
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Expert Team</h3>
               <p className="text-gray-600">Highly skilled professionals dedicated to customer success and satisfaction</p>
             </div>
 
@@ -168,7 +168,7 @@ export default function AboutPage() {
               <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <TrendingUp className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Market Expansion</h3>
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Market Expansion</h3>
               <p className="text-gray-600">Growing presence across India with strategic partnerships worldwide</p>
             </div>
 
@@ -176,7 +176,7 @@ export default function AboutPage() {
               <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Target className="w-8 h-8 text-red-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Innovation Focus</h3>
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Innovation Focus</h3>
               <p className="text-gray-600">Constantly introducing cutting-edge technology to meet industry needs</p>
             </div>
           </div>
@@ -187,7 +187,7 @@ export default function AboutPage() {
             {/* Infinite Scrolling Images + Vision & Mission */}
       <section className="py-16 bg-white overflow-hidden">
         <div className="mb-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
             Our <span className="text-red-600">Facilities</span>
           </h2>
           <div className="w-24 h-1 bg-red-600 mx-auto"></div>
@@ -247,7 +247,7 @@ export default function AboutPage() {
       <section id="timeline" className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
               Our <span className="text-red-600">Journey</span>
             </h2>
             <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
@@ -274,7 +274,7 @@ export default function AboutPage() {
                       }`}
                     >
                       <div className="text-3xl font-bold text-red-600 mb-2">{item.year}</div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <h3 className="text-xl font-bold text-blue-900 mb-2">{item.title}</h3>
                       <p className="text-gray-600">{item.description}</p>
                     </div>
                   </div>
@@ -319,7 +319,7 @@ export default function AboutPage() {
                     }`}
                   >
                     <div className="text-2xl font-bold text-red-600 mb-1">{item.year}</div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <h3 className="text-lg font-bold text-blue-900 mb-1">{item.title}</h3>
                     <p className="text-sm text-gray-600">{item.description}</p>
                   </div>
                 </div>

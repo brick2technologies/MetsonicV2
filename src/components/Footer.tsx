@@ -2,7 +2,7 @@ import { Instagram, Facebook, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-gray-800 to-gray-900 text-white overflow-hidden">
+    <footer className="relative bg-blue-900 text-white overflow-hidden">
       {/* Main Footer Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-10 lg:pt-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">

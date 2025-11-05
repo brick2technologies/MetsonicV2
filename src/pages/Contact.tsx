@@ -89,7 +89,7 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-red-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900">Phone</h3>
+                    <h3 className="font-bold text-blue-900">Phone</h3>
                     <div className="space-y-1">
                       
                       <a href="tel:+919490167002" className="block text-red-600 hover:underline">
@@ -108,7 +108,7 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-red-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900">Email</h3>
+                    <h3 className="font-bold text-blue-900">Email</h3>
                     <a href="mailto:metsonic.engineers@gmail.com" className="text-red-600 hover:underline break-all">
                       metsonic.engineers@gmail.com
                     </a>
@@ -122,7 +122,7 @@ export default function ContactPage() {
 
             {/* Right: Contact Form */}
             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+              <h3 className="text-2xl font-bold text-blue-900 mb-6">Send us a Message</h3>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

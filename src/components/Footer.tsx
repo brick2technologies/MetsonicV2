@@ -1,14 +1,15 @@
+
 import { Instagram, Facebook, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="relative bg-blue-900 text-white overflow-hidden">
       {/* Main Footer Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-10 lg:pt-5">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-10 lg:pt-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Logo and About */}
           <div className="space-y-6">
-            <div className="flex flex-col gap-0">
+            <div className="flex flex-col ">
               <img
                 src="Logo.jpg"
                 alt="Metsonic Engineers Pvt Ltd logo"
@@ -137,6 +138,7 @@ export default function Footer() {
               <a
                 href="#"
                 className="text-gray-300 hover:text-red-500 transition-colors transform hover:scale-110 duration-200"
+                aria-label="Instagram"
               >
                 <Instagram size={24} />
               </a>
@@ -145,6 +147,7 @@ export default function Footer() {
               <a
                 href="#"
                 className="text-gray-300 hover:text-red-500 transition-colors transform hover:scale-110 duration-200"
+                aria-label="Facebook"
               >
                 <Facebook size={24} />
               </a>
@@ -153,6 +156,7 @@ export default function Footer() {
               <a
                 href="#"
                 className="text-gray-300 hover:text-red-500 transition-colors transform hover:scale-110 duration-200"
+                aria-label="YouTube"
               >
                 <Youtube size={24} />
               </a>
@@ -161,17 +165,17 @@ export default function Footer() {
         </div>
 
         {/* Brand Section */}
-        <div className="mt-5 text-center">
-          <div className="text-red-500 text-2xl md:text-2xl font-bold tracking-[0.3em] mb-3">
+        <div className="mt-8 text-center">
+          <div className="text-red-500 text-xl sm:text-2xl md:text-2xl font-bold tracking-[0.3em] mb-2">
             SINCE 1992
           </div>
-          <div className="text-red-500 font-black text-8xl sm:text-9xl md:text-[12rem] lg:text-[14rem] xl:text-[16rem] leading-none tracking-wide">
+          <div className="text-red-500 font-black text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] leading-none tracking-wide">
             METSONIC
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-3 border-t border-gray-700 pb-3">
+        <div className="pt-6 border-t border-gray-700 pb-6 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-400">
               <a href="#" className="hover:text-red-500 transition-colors">
@@ -187,8 +191,8 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Repeat icons at bottom */}
-            <div className="flex ">
+            {/* Designer Credit */}
+            <div className="flex">
               <p className="text-gray-300 text-sm sm:text-base hover:text-red-500 transition-colors duration-200 cursor-default">
                 Designed by{" "}
                 <a
@@ -201,7 +205,6 @@ export default function Footer() {
                 </a>
               </p>
             </div>
-
           </div>
         </div>
       </div>

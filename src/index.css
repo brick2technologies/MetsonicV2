@@ -1,8 +1,70 @@
+/* ====================== */
+/*  Engebrechtre Fonts    */
+/* ====================== */
+
+@font-face {
+  font-family: "Engebrechtre";
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Rg.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Engebrechtre";
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Rg-It.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Engebrechtre";
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Bd.otf") format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Engebrechtre";
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Bd-It.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Engebrechtre";
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex.otf") format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Engebrechtre";
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-It.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Engebrechtre";
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-Bd.otf") format("opentype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Engebrechtre";
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-Bd-It.otf") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+
+/* Load Tailwind AFTER fonts */
 @import "tailwindcss";
 
+/* ====================== */
+/*  Set Global Font       */
+/* ====================== */
 body {
-  font-family: "Rajdhani", sans-serif;
+  font-family: "Engebrechtre", sans-serif;
 }
+
 
 @keyframes metallicShine {
   0% {

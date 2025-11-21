@@ -1,209 +1,268 @@
 
-import { Instagram, Facebook, Youtube } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import {
+  Instagram,
+  Facebook,
+  Youtube,
+  MapPin,
+  Mail,
+  Phone,
+  ArrowUpRight,
+} from "lucide-react";
 
 export default function Footer() {
+  const navigate = useNavigate();
+
+  // Handle smooth scroll to #clients on Home
+  const goToClients = () => {
+    navigate("/");
+    setTimeout(() => {
+      document.getElementById("clients")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  const goToPage = (path: string) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <footer className="relative bg-blue-900 text-white overflow-hidden">
-      {/* Main Footer Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-10 lg:pt-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Logo and About */}
-          <div className="space-y-6">
-            <div className="flex flex-col ">
+    <footer className="relative bg-white border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* Main Footer Content */}
+        <div className="py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left: Logo + Description + Social */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="flex items-center gap-3">
               <img
-                src="Logo.jpg"
-                alt="Metsonic Engineers Pvt Ltd logo"
-                className="h-16 w-auto object-contain brightness-110"
+                src="/Logo.jpg"
+                alt="Metsonic Engineers logo"
+                className="h-14 w-auto object-contain"
               />
               <img
-                src="name.jpg"
-                alt="Metsonic Engineers Pvt Ltd"
-                className="h-10 w-auto object-contain brightness-110"
+                src="/name.jpg"
+                alt="Metsonic Engineers"
+                className="h-14 w-auto object-contain"
               />
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Leading supplier of testing equipment in South India since 1992.
+
+            <p className="text-gray-600 text-base leading-relaxed max-w-md">
+              India's leading supplier of industrial testing equipment since 1992.
+              Serving Defence, Research, and Industrial sectors with precision and excellence.
             </p>
-            <p className="text-gray-400 text-xs">
-              © 2024 Metsonic Engineers Pvt. Ltd. All rights reserved.
-            </p>
-          </div>
 
-          {/* Company Links */}
-          <div>
-            <h3 className="text-red-500 font-bold text-xl mb-5">Company</h3>
-            <ul className="space-y-3">
-              {["About Us", "Careers", "Management Team", "Contact Us"].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="text-gray-200 hover:text-red-500 transition-colors text-base"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-
-          {/* Products Links */}
-          <div>
-            <h3 className="text-red-500 font-bold text-xl mb-5">Products</h3>
-            <ul className="space-y-3">
-              {[
-                "Metallographic Testing",
-                "Non-Destructive Testing",
-                "Physical Testing",
-                "Sand Testing",
-              ].map((product) => (
-                <li key={product}>
-                  <a
-                    href="#products"
-                    className="text-gray-200 hover:text-red-500 transition-colors text-base"
-                  >
-                    {product}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info with Social Media Icons */}
-          <div>
-            <h3 className="text-red-500 font-bold text-xl mb-5">Contact</h3>
-            <ul className="space-y-4 text-gray-200">
-              <li className="flex items-start gap-3">
-                <svg
-                  className="w-5 h-5 text-red-500 mt-1 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span className="text-sm leading-relaxed">
-                  Hyderabad, Telangana, India
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <svg
-                  className="w-5 h-5 text-red-500 mt-1 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                <span className="text-sm">info@metsonic.com</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <svg
-                  className="w-5 h-5 text-red-500 mt-1 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                <span className="text-sm">+91-XXX-XXX-XXXX</span>
-              </li>
-            </ul>
-
-            {/* Social Media Row */}
-            <div className="flex gap-4 mt-5">
-              {/* Instagram */}
+            {/* Social Media */}
+            <div className="flex gap-4">
               <a
-                href="#"
-                className="text-gray-300 hover:text-red-500 transition-colors transform hover:scale-110 duration-200"
+                href="https://instagram.com/metsonic"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
+                className="w-12 h-12 rounded-xl bg-gray-100 hover:bg-red-600 text-gray-700 hover:text-white flex items-center justify-center transition-all duration-300"
               >
-                <Instagram size={24} />
+                <Instagram className="w-6 h-6" strokeWidth={2} />
               </a>
-
-              {/* Facebook */}
               <a
-                href="#"
-                className="text-gray-300 hover:text-red-500 transition-colors transform hover:scale-110 duration-200"
+                href="https://facebook.com/metsonic"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
+                className="w-12 h-12 rounded-xl bg-gray-100 hover:bg-blue-600 text-gray-700 hover:text-white flex items-center justify-center transition-all duration-300"
               >
-                <Facebook size={24} />
+                <Facebook className="w-6 h-6" strokeWidth={2} />
               </a>
-
-              {/* YouTube */}
               <a
-                href="#"
-                className="text-gray-300 hover:text-red-500 transition-colors transform hover:scale-110 duration-200"
+                href="https://youtube.com/@metsonic"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="YouTube"
+                className="w-12 h-12 rounded-xl bg-gray-100 hover:bg-red-600 text-gray-700 hover:text-white flex items-center justify-center transition-all duration-300"
               >
-                <Youtube size={24} />
+                <Youtube className="w-6 h-6" strokeWidth={2} />
               </a>
             </div>
           </div>
-        </div>
 
-        {/* Brand Section */}
-        <div className="mt-8 text-center">
-          <div className="text-red-500 text-xl sm:text-2xl md:text-2xl font-bold tracking-[0.3em] mb-2">
-            SINCE 1992
-          </div>
-          <div className="text-red-500 font-black text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] leading-none tracking-wide">
-            METSONIC
+          {/* Right: 3 Columns */}
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10 lg:gap-16">
+
+            {/* Company Links */}
+            <div>
+              <h4 className="text-blue-900 font-bold text-sm uppercase tracking-wider mb-6">
+                Company
+              </h4>
+              <ul className="space-y-4">
+                <li>
+                  <button
+                    onClick={() => goToPage("/company")}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    About Us
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+                
+                <li>
+                  <button
+                    onClick={() => goToPage("/Products")}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    Products
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={goToClients}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    Clients
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => goToPage("/contact")}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    Contact
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Products Links */}
+            <div>
+              <h4 className="text-blue-900 font-bold text-sm uppercase tracking-wider mb-6">
+                Products
+              </h4>
+              <ul className="space-y-4">
+                <li>
+                  <button
+                    onClick={() => goToPage("/products/ndt")}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    NDT Equipment
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => goToPage("/products/physical")}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    Physical Testing
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => goToPage("/products/chemical")}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    Chemical Testing
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => goToPage("/products/foundry")}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    Foundry Machinery
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => goToPage("/products/ultrasonic")}
+                    className="text-gray-600 hover:text-red-600 transition-colors inline-flex items-center gap-2 group cursor-pointer"
+                  >
+                    Ultrasonic Machines
+                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </li>
+                
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h4 className="text-blue-900 font-bold text-sm uppercase tracking-wider mb-6">
+                Contact Us
+              </h4>
+              <div className="space-y-5">
+                <a
+                  href="tel:+919876543210"
+                  className="flex items-center gap-4 text-gray-700 hover:text-red-600 transition-colors group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center group-hover:bg-red-100 transition-colors">
+                    <Phone className="w-5 h-5 text-red-600" />
+                  </div>
+                  <span className="font-medium">+91 98765 43210</span>
+                </a>
+
+                <a
+                  href="mailto:info@metsonic.com"
+                  className="flex items-center gap-4 text-gray-700 hover:text-red-600 transition-colors group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center group-hover:bg-red-100 transition-colors">
+                    <Mail className="w-5 h-5 text-red-600" />
+                  </div>
+                  <span className="font-medium">info@metsonic.com</span>
+                </a>
+
+                <div className="flex items-start gap-4 text-gray-700">
+                  <div className="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-red-600" />
+                  </div>
+                  <span className="font-medium leading-tight">
+                    Hyderabad,<br />Telangana, India
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 border-t border-gray-700 pb-6 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-400">
-              <a href="#" className="hover:text-red-500 transition-colors">
-                Privacy Policy
-              </a>
-              <span className="text-gray-600">|</span>
-              <a href="#" className="hover:text-red-500 transition-colors">
-                Terms of Service
-              </a>
-              <span className="text-gray-600">|</span>
-              <a href="#" className="hover:text-red-500 transition-colors">
-                Legal
-              </a>
+        <div className="border-t border-gray-200 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+            <div className="flex items-center gap-6 text-gray-600">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                <span className="font-bold text-blue-900">Since 1992</span>
+              </div>
+              <span className="hidden sm:inline text-gray-400">|</span>
+              <span>© 2025 Metsonic Engineers Pvt. Ltd. All Rights Reserved</span>
             </div>
 
-            {/* Designer Credit */}
-            <div className="flex">
-              <p className="text-gray-300 text-sm sm:text-base hover:text-red-500 transition-colors duration-200 cursor-default">
-                Designed by{" "}
+            <div className="flex items-center gap-6 text-gray-600">
+              <button
+                onClick={() => goToPage("/privacy")}
+                className="hover:text-red-600 transition-colors"
+              >
+                Privacy Policy
+              </button>
+              <button
+                onClick={() => goToPage("/terms")}
+                className="hover:text-red-600 transition-colors"
+              >
+                Terms of Service
+              </button>
+              <span className="text-gray-400">|</span>
+              <span>
+                Built by{" "}
                 <a
-                  href="https://brick2tech.com"
+                  href="https://web.brick2tech.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-red-500 hover:underline hover:text-red-400 font-semibold"
+                  className="text-red-600 hover:text-red-700 font-bold"
                 >
                   Brick2Tech
                 </a>
-              </p>
+              </span>
             </div>
           </div>
         </div>

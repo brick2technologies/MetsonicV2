@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail } from "lucide-react";
+import {  Phone, Mail } from "lucide-react";
 
 // ---------- 1. Product type ----------
 type Product = {
@@ -379,9 +379,76 @@ export default function ProductsPage() {
       {/* Hero Section */}
       <section className=" top-16 relative bg-gradient-to-br from-red-600 via-red-700 to-red-900 text-white py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
+        
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          {/* Gears */}
+          <div className="gear gear-1">
+            <svg viewBox="0 0 100 100" className="w-32 h-32">
+              <path d="M50,10 L55,20 L65,18 L60,28 L70,30 L63,38 L72,43 L63,48 L70,56 L60,58 L65,68 L55,66 L50,76 L45,66 L35,68 L40,58 L30,56 L37,48 L28,43 L37,38 L30,30 L40,28 L35,18 L45,20 Z" 
+                    fill="currentColor" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          <div className="gear gear-2">
+            <svg viewBox="0 0 100 100" className="w-24 h-24">
+              <path d="M50,10 L55,20 L65,18 L60,28 L70,30 L63,38 L72,43 L63,48 L70,56 L60,58 L65,68 L55,66 L50,76 L45,66 L35,68 L40,58 L30,56 L37,48 L28,43 L37,38 L30,30 L40,28 L35,18 L45,20 Z" 
+                    fill="currentColor" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+          <div className="gear gear-3">
+            <svg viewBox="0 0 100 100" className="w-40 h-40">
+              <path d="M50,10 L55,20 L65,18 L60,28 L70,30 L63,38 L72,43 L63,48 L70,56 L60,58 L65,68 L55,66 L50,76 L45,66 L35,68 L40,58 L30,56 L37,48 L28,43 L37,38 L30,30 L40,28 L35,18 L45,20 Z" 
+                    fill="currentColor" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </div>
+
+          {/* Microscope Icon */}
+          <div className="floating-icon microscope-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-20 h-20">
+              <circle cx="12" cy="18" r="3" strokeWidth="2"/>
+              <path d="M8 18h8M12 15V9M9 9l3-6 3 6M6 21h12" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </div>
+
+          {/* Testing Machine Icon */}
+          <div className="floating-icon machine-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-24 h-24">
+              <rect x="4" y="4" width="16" height="16" rx="2" strokeWidth="2"/>
+              <path d="M4 12h16M12 4v16M8 8h8M8 16h8" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </div>
+
+          {/* Measuring Tool Icon */}
+          <div className="floating-icon ruler-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-16 h-16">
+              <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2"/>
+              <path d="M3 9h18M3 15h18M9 3v18M15 3v18" strokeWidth="2"/>
+            </svg>
+          </div>
+
+          {/* Particles */}
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${15 + Math.random() * 10}s`
+              }}
+            />
+          ))}
+        </div>
+
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Products</h1>
-          <p className="text-lg md:text-2xl text-red-100 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+            Our Products
+          </h1>
+          <p className="text-lg md:text-2xl text-red-100 max-w-3xl mx-auto animate-fade-in-up-delay">
             Cutting-Edge Testing Solutions for Industry Leaders
           </p>
         </div>
@@ -400,14 +467,13 @@ export default function ProductsPage() {
               {group.products.map((product) => (
                 <div
                   key={product.id}
-                  className="flip-card h-[350px] sm:h-[380px] md:h-[420px] cursor-pointer"
+                  className="flip-card h-[420px] sm:h-[460px] md:h-[500px] cursor-pointer"
                   style={{ perspective: "1000px" }}
                 >
                   <div className="flip-card-inner relative w-full h-full transition-transform duration-700">
-
-                    {/* Front */}
+                    {/* Front of Card */}
                     <div className="flip-card-front absolute inset-0 bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-                      <div className="h-44 sm:h-52 overflow-hidden bg-gray-100">
+                      <div className="h-40 sm:h-48 overflow-hidden bg-gray-100">
                         <img
                           src={product.image}
                           alt={product.name}
@@ -418,58 +484,55 @@ export default function ProductsPage() {
                         <span className="inline-block px-2 sm:px-3 py-1 bg-red-100 text-red-600 text-[10px] sm:text-xs font-semibold rounded-full mb-2 sm:mb-3">
                           {product.category.split(" ")[0]}
                         </span>
-                        <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                        <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2 line-clamp-2">
                           {product.name}
                         </h3>
-                        <p className="text-gray-600 text-xs sm:text-sm line-clamp-2">
+                        <p className="text-gray-600 text-xs sm:text-sm line-clamp-3 sm:line-clamp-4">
                           {product.description}
                         </p>
                       </div>
                     </div>
 
-                    {/* Back */}
+                    {/* Back of Card */}
                     <div className="flip-card-back absolute inset-0 bg-gradient-to-br from-red-600 to-red-800 rounded-xl md:rounded-2xl shadow-2xl p-3 sm:p-4 md:p-6 text-white flex flex-col">
-                      <h3 className="text-sm sm:text-base md:text-lg font-bold mb-2 line-clamp-2">
+                      <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 sm:mb-3 line-clamp-2">
                         {product.name}
                       </h3>
                       <div className="flex-1 overflow-hidden">
-                        <div className="mb-2 sm:mb-3">
-                          <h4 className="font-semibold text-red-100 mb-1 text-xs sm:text-sm">
+                        <div className="mb-3 sm:mb-4">
+                          <h4 className="font-semibold text-red-100 mb-1 sm:mb-2 text-xs sm:text-sm">
                             Key Features:
                           </h4>
-                          <ul className="space-y-0.5 text-[10px] sm:text-xs">
+                          <ul className="space-y-0.5 sm:space-y-1 text-[10px] sm:text-xs">
                             {product.features.map((feature, idx) => (
                               <li key={idx} className="flex items-start">
-                                <span className="text-red-300 mr-1">•</span>
-                                <span className="line-clamp-1">{feature}</span>
+                                <span className="text-red-300 mr-1 sm:mr-2 flex-shrink-0">•</span>
+                                <span className="line-clamp-2">{feature}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
-
                         <div>
-                          <h4 className="font-semibold text-red-100 mb-1 text-xs sm:text-sm">
+                          <h4 className="font-semibold text-red-100 mb-1 sm:mb-2 text-xs sm:text-sm">
                             Specifications:
                           </h4>
-                          <ul className="space-y-0.5 text-[10px] sm:text-xs">
+                          <ul className="space-y-0.5 sm:space-y-1 text-[10px] sm:text-xs">
                             {product.specs.map((spec, idx) => (
                               <li key={idx} className="flex items-start">
-                                <span className="text-red-300 mr-1">•</span>
+                                <span className="text-red-300 mr-1 sm:mr-2 flex-shrink-0">•</span>
                                 <span className="line-clamp-1">{spec}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       </div>
-
                       <button
                         onClick={() => setSelectedProduct(product)}
-                        className="mt-3 w-full bg-white text-red-600 py-2 rounded-lg font-bold hover:bg-red-50 transition-colors text-xs sm:text-sm md:text-base"
+                        className="mt-3 sm:mt-4 w-full bg-white text-red-600 py-2 sm:py-2.5 md:py-3 rounded-lg md:rounded-xl font-bold hover:bg-red-50 transition-colors text-xs sm:text-sm md:text-base"
                       >
                         Request Quote
                       </button>
                     </div>
-
                   </div>
                 </div>
               ))}
@@ -478,11 +541,10 @@ export default function ProductsPage() {
         ))}
       </section>
 
-
       {/* Product Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto scrollbar-hide">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full my-8 relative max-h-[90vh] overflow-y-auto scrollbar-hide">
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full my-8 relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedProduct(null)}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10 bg-white rounded-full p-2 shadow-lg"
@@ -506,13 +568,20 @@ export default function ProductsPage() {
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                   {selectedProduct.name}
                 </h2>
-                <p className="text-gray-600 mb-6">{selectedProduct.description}</p>
+                <p className="text-gray-600 mb-6">
+                  {selectedProduct.description}
+                </p>
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Key Features</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Key Features
+                  </h3>
                   <ul className="space-y-2">
                     {selectedProduct.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start text-gray-700 text-sm">
+                      <li
+                        key={idx}
+                        className="flex items-start text-gray-700 text-sm"
+                      >
                         <span className="text-red-600 mr-2 font-bold">✓</span>
                         {feature}
                       </li>
@@ -521,10 +590,15 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Specifications</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Specifications
+                  </h3>
                   <ul className="space-y-2">
                     {selectedProduct.specs.map((spec, idx) => (
-                      <li key={idx} className="flex items-start text-gray-700 text-sm">
+                      <li
+                        key={idx}
+                        className="flex items-start text-gray-700 text-sm"
+                      >
                         <span className="text-red-600 mr-2">•</span>
                         {spec}
                       </li>
@@ -548,7 +622,6 @@ export default function ProductsPage() {
           </div>
         </div>
       )}
-
 
       {/* Stats Section */}
       <section className="bg-gradient-to-br from-red-600 to-red-800 text-white py-16 px-6">
@@ -625,7 +698,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* CSS for flip animation */}
+      {/* CSS for flip animation and hero animations */}
       <style>{`
         .flip-card-inner {
           transform-style: preserve-3d;
@@ -649,6 +722,118 @@ export default function ProductsPage() {
           .flip-card:active .flip-card-inner {
             transform: rotateY(180deg);
           }
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        /* Hero Animation Styles */
+        @keyframes rotate {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateReverse {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @keyframes floatSlow {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-30px) translateX(10px); }
+        }
+
+        @keyframes particle {
+          0% { transform: translateY(0) scale(0); opacity: 0; }
+          50% { opacity: 0.5; }
+          100% { transform: translateY(-100px) scale(1); opacity: 0; }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .gear {
+          position: absolute;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+
+        .gear-1 {
+          top: 10%;
+          left: 5%;
+          animation: rotate 20s linear infinite;
+        }
+
+        .gear-2 {
+          bottom: 15%;
+          right: 10%;
+          animation: rotateReverse 15s linear infinite;
+        }
+
+        .gear-3 {
+          top: 50%;
+          right: 5%;
+          animation: rotate 25s linear infinite;
+        }
+
+        .floating-icon {
+          position: absolute;
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .microscope-icon {
+          top: 20%;
+          right: 15%;
+          animation-delay: 0s;
+        }
+
+        .machine-icon {
+          bottom: 25%;
+          left: 10%;
+          animation: floatSlow 8s ease-in-out infinite;
+          animation-delay: 1s;
+        }
+
+        .ruler-icon {
+          top: 60%;
+          left: 15%;
+          animation: float 7s ease-in-out infinite;
+          animation-delay: 2s;
+        }
+
+        .particle {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: white;
+          border-radius: 50%;
+          animation: particle linear infinite;
+        }
+
+        .animate-fade-in-up {
+          animation: fadeInUp 1s ease-out;
+        }
+
+        .animate-fade-in-up-delay {
+          animation: fadeInUp 1s ease-out 0.3s both;
         }
       `}</style>
     </div>

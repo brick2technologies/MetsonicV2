@@ -21,7 +21,7 @@ const products = [
     icon: Microscope,
     features: ["Material Analysis", "Grain Structure", "Microscopy Solutions"],
     color: "from-red-500 to-red-600",
-    lightColor: "bg-red-50",
+    lightColor: "bg-red-100",
     textColor: "text-red-600",
   },
   {
@@ -31,7 +31,7 @@ const products = [
     icon: Radio,
     features: ["Flaw Detection", "Ultrasonic Testing", "Quality Assurance"],
     color: "from-blue-600 to-blue-700",
-    lightColor: "bg-blue-50",
+    lightColor: "bg-blue-100",
     textColor: "text-blue-600",
   },
   {
@@ -41,7 +41,7 @@ const products = [
     icon: TestTube,
     features: ["Hardness Testing", "Tensile Analysis", "Impact Testing"],
     color: "from-red-500 to-red-600",
-    lightColor: "bg-red-50",
+    lightColor: "bg-red-100",
     textColor: "text-red-600",
   },
   {
@@ -51,7 +51,7 @@ const products = [
     icon: Beaker,
     features: ["Composition Analysis", "Spectroscopy", "Lab Equipment '"],
     color: "from-blue-600 to-blue-700",
-    lightColor: "bg-blue-50",
+    lightColor: "bg-blue-100",
     textColor: "text-blue-600",
   },
   {
@@ -61,7 +61,7 @@ const products = [
     icon: Factory,
     features: ["Molding Machines", "Casting Equipment", "Production Tools"],
     color: "from-red-500 to-red-600",
-    lightColor: "bg-red-50",
+    lightColor: "bg-red-100",
     textColor: "text-red-600",
   },
   {
@@ -71,7 +71,7 @@ const products = [
     icon: Waves,
     features: ["Cleaning Systems", "Inspection Tools", "Precision Equipment"],
     color: "from-blue-600 to-blue-700",
-    lightColor: "bg-blue-50",
+    lightColor: "bg-blue-100",
     textColor: "text-blue-600",
   },
   {
@@ -81,7 +81,7 @@ const products = [
     icon: Package,
     features: ["Testing Supplies", "Accessories", "Maintenance Parts"],
     color: "from-red-500 to-red-600",
-    lightColor: "bg-red-50",
+    lightColor: "bg-red-100",
     textColor: "text-red-600",
   },
 ];
@@ -89,15 +89,9 @@ const products = [
 export default function Products() {
   const [activeProduct, setActiveProduct] = useState(0);
 
-  // Fixed Variants with proper easing (cubic-bezier array)
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
   const itemVariants: Variants = {
@@ -105,10 +99,7 @@ export default function Products() {
     visible: {
       opacity: 1,
       x: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1], // "easeOut" cubic-bezier
-      },
+      transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
     },
   };
 
@@ -117,10 +108,7 @@ export default function Products() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
     },
   };
 
@@ -128,8 +116,9 @@ export default function Products() {
 
   return (
     <section id="products" className="relative bg-white py-24 overflow-hidden">
+
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
@@ -140,6 +129,7 @@ export default function Products() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
+
         {/* Header */}
         <motion.div
           className="text-center mb-20"
@@ -148,22 +138,25 @@ export default function Products() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 border border-red-200 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 border border-red-200 rounded-full mb-6">
             <span className="text-sm font-semibold text-red-600 uppercase tracking-wide">
               Our Solutions
             </span>
           </div>
+
           <h2 className="text-5xl lg:text-6xl font-bold text-blue-900 mb-6">
             Product <span className="text-red-600">Portfolio</span>
           </h2>
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Comprehensive testing and inspection solutions engineered for precision and reliability
           </p>
         </motion.div>
 
-        {/* Split View Layout */}
+        {/* Layout */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left Side - Product List */}
+
+          {/* Left: Product List */}
           <motion.div
             className="space-y-3"
             variants={containerVariants}
@@ -180,15 +173,17 @@ export default function Products() {
                   key={product.id}
                   variants={itemVariants}
                   onClick={() => setActiveProduct(index)}
-                  className={`w-full text-left transition-all duration-500 rounded-2xl overflow-hidden group ${
-                    isActive
-                      ? `bg-gradient-to-r ${product.color} shadow-2xl scale-[1.02]`
-                      : "bg-white hover:bg-gray-50 border-2 border-gray-100 hover:border-gray-200 shadow-md hover:shadow-lg"
-                  }`}
+                  className={`w-full text-left rounded-2xl overflow-hidden transition-all duration-500 group
+                    ${
+                      isActive
+                        ? `bg-gradient-to-r ${product.color} scale-[1.01]`
+                        : "bg-white border border-gray-200 hover:bg-gray-50"
+                    }
+                `}
                 >
                   <div className="p-6 flex items-center gap-5">
                     <div
-                      className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-500 ${
+                      className={`w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-500 ${
                         isActive ? "bg-white/20" : product.lightColor
                       }`}
                     >
@@ -196,20 +191,20 @@ export default function Products() {
                         className={`w-8 h-8 transition-all duration-500 ${
                           isActive ? "text-white" : product.textColor
                         }`}
-                        strokeWidth={2}
                       />
                     </div>
 
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1">
                       <h3
-                        className={`text-xl font-bold mb-1 transition-colors duration-500 ${
+                        className={`text-xl font-bold mb-1 transition-colors ${
                           isActive ? "text-white" : "text-blue-900"
                         }`}
                       >
                         {product.title}
                       </h3>
+
                       <p
-                        className={`text-sm transition-colors duration-500 ${
+                        className={`text-sm transition-colors ${
                           isActive ? "text-white/90" : "text-gray-600"
                         }`}
                       >
@@ -218,10 +213,10 @@ export default function Products() {
                     </div>
 
                     <ArrowRight
-                      className={`w-6 h-6 flex-shrink-0 transition-all duration-500 ${
+                      className={`w-6 h-6 transition-all ${
                         isActive
-                          ? "text-white translate-x-0 opacity-100"
-                          : "text-gray-400 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+                          ? "text-white opacity-100"
+                          : "opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 text-gray-400"
                       }`}
                     />
                   </div>
@@ -230,7 +225,7 @@ export default function Products() {
             })}
           </motion.div>
 
-          {/* Right Side - Active Product Details */}
+          {/* Right: Active Product */}
           <motion.div
             key={activeProduct}
             variants={contentVariants}
@@ -238,19 +233,15 @@ export default function Products() {
             animate="visible"
             className="lg:sticky lg:top-24"
           >
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 shadow-xl border border-gray-100">
-              <div
-                className={`w-20 h-20 rounded-2xl ${activeProductData.lightColor} flex items-center justify-center mb-6`}
-              >
+            <div className="bg-white border border-gray-200 rounded-3xl p-10">
+
+              <div className={`w-20 h-20 rounded-2xl ${activeProductData.lightColor} flex items-center justify-center mb-6`}>
                 {React.createElement(activeProductData.icon, {
                   className: `w-10 h-10 ${activeProductData.textColor}`,
-                  strokeWidth: 2,
                 })}
               </div>
 
-              <h3 className="text-3xl font-bold text-blue-900 mb-4">
-                {activeProductData.title}
-              </h3>
+              <h3 className="text-3xl font-bold text-blue-900 mb-4">{activeProductData.title}</h3>
 
               <p className="text-lg text-gray-700 leading-relaxed mb-8">
                 {activeProductData.description}
@@ -260,6 +251,7 @@ export default function Products() {
                 <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
                   Key Capabilities
                 </h4>
+
                 {activeProductData.features.map((feature, idx) => (
                   <motion.div
                     key={idx}
@@ -268,35 +260,29 @@ export default function Products() {
                     transition={{ delay: idx * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <CheckCircle
-                      className={`w-5 h-5 ${activeProductData.textColor} flex-shrink-0`}
-                    />
+                    <CheckCircle className={`w-5 h-5 ${activeProductData.textColor}`} />
                     <span className="text-gray-700 font-medium">{feature}</span>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4"> 
-                <Link to="/contact">
-                <button className="flex-1 px-6 py-4 bg-white text-blue-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-red-400 transition-all duration-300">
+              <Link to="/contact">
+                <button className="w-full sm:w-auto px-6 py-4 border-2 border-gray-300 text-blue-900 font-semibold rounded-xl hover:border-red-500 transition-all">
                   Get Quote
                 </button>
-                </Link>
-              </div>
+              </Link>
             </div>
 
             {/* Progress Dots */}
-            <div className="mt-6 flex items-center justify-center gap-2">
+            <div className="mt-6 flex justify-center gap-2">
               {products.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveProduct(idx)}
-                  className={`transition-all duration-300 rounded-full ${
-                    idx === activeProduct
-                      ? "w-8 h-2 bg-red-600"
-                      : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to product ${idx + 1}`}
+                  className={`
+                    rounded-full transition-all
+                    ${idx === activeProduct ? "w-8 h-2 bg-red-600" : "w-2 h-2 bg-gray-300"}
+                  `}
                 />
               ))}
             </div>
@@ -311,31 +297,35 @@ export default function Products() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 rounded-3xl p-12 lg:p-16 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 rounded-3xl p-12 lg:p-16 relative overflow-hidden">
 
             <div className="relative text-center">
               <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
                 Need a Custom Testing Solution?
               </h3>
+
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
                 Our engineering team specializes in creating tailored solutions for unique industrial requirements
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
                 <Link to="/contact">
-                <button className="px-8 py-4 bg-white text-blue-900 font-bold rounded-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-xl flex items-center justify-center gap-2">
-                  Contact Our Experts
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+                  <button className="px-8 py-4 bg-white text-blue-900 font-bold rounded-xl hover:bg-gray-100 transition-all">
+                    Contact Our Experts
+                    <ArrowRight className="w-5 h-5 inline ml-2" />
+                  </button>
                 </Link>
-                <button className="px-8 py-4 bg-transparent text-white font-bold rounded-xl border-2 border-white/30 hover:border-white hover:bg-white/10 transition-all duration-300">
+
+                <button className="px-8 py-4 bg-transparent text-white font-bold rounded-xl border-2 border-white/30 hover:border-white transition-all">
                   Download Catalog
                 </button>
+
               </div>
             </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
-import { Phone, Mail, ArrowRight, Award, Shield, Zap, Users, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { Phone, Mail, ArrowRight, Award, Shield, Zap, Users, MapPin, Target, Globe } from "lucide-react";
 
 const timeline = [
   { year: "1992", title: "Foundation", desc: "Metsonic Engineers founded in Hyderabad" },
@@ -11,276 +11,350 @@ const timeline = [
 ];
 
 export default function AboutPage() {
-  return (
-    <div className="min-h-screen bg-white">
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
 
-      {/* HERO */}
-      <section className="relative pt-32 pb-24 px-6 lg:px-12 bg-gradient-to-br from-[#001F5B] via-[#001A4A] to-[#001537] text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#E30613]/25 rounded-full blur-[140px]"></div>
-        <div className="absolute bottom-0 left-0 w-[380px] h-[380px] bg-[#E30613]/15 rounded-full blur-[130px]"></div>
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-white overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-24 px-6 lg:px-12 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '48px 48px'
+          }}></div>
+        </div>
+
+        <motion.div 
+          className="absolute top-20 right-20 w-72 h-72 bg-red-500/20 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-20 left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
 
         <div className="relative max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-2 bg-[#E30613]/25 border border-[#E30613]/40 rounded-full mb-10 backdrop-blur-sm shadow-lg">
-            <Award className="w-5 h-5 text-[#E30613]" />
-            <span className="text-sm font-semibold tracking-wide text-[#E30613]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-6 py-2 bg-red-500/20 border border-red-500/40 rounded-full mb-10 backdrop-blur-sm"
+          >
+            <Award className="w-5 h-5 text-red-400" />
+            <span className="text-sm font-semibold tracking-wide text-red-400">
               30+ Years of Engineering Excellence
             </span>
-          </div>
+          </motion.div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.1] max-w-6xl mx-auto drop-shadow-md">
-            About <span className="text-[#E30613]">Metsonic</span> <br />
+          <motion.h1 
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            About <span className="text-red-500">Metsonic</span>
+            <br />
             <span className="text-4xl md:text-5xl lg:text-6xl block mt-4">
               Engineers Pvt. Ltd.
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-xl md:text-2xl text-white/90 mt-10 max-w-4xl mx-auto leading-relaxed font-medium">
-            Delivering world-class NDT & industrial testing solutions to India's
-            Defence, Aerospace, Research & Manufacturing sectors since 1992.
-          </p>
+          <motion.p 
+            className="text-xl md:text-2xl text-blue-100 mt-10 max-w-4xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
+            Delivering world-class NDT & industrial testing solutions to India's defence & research sectors.
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-14">
-            <a
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-6 justify-center mt-14"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+          >
+            <motion.a
               href="#journey"
-              className="group px-10 py-5 bg-[#E30613] hover:bg-[#c50511] text-white font-bold text-lg rounded-xl 
-                transition-all shadow-xl hover:shadow-2xl hover:scale-[1.05] flex items-center justify-center gap-3"
+              className="group px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-3"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
               Our Journey Since 1992
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               href="tel:+919490167002"
-              className="px-10 py-5 bg-white text-[#001F5B] font-bold text-lg rounded-xl hover:bg-gray-100 
-                transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3"
+              className="px-10 py-5 bg-white text-blue-900 font-bold text-lg rounded-xl shadow-lg hover:bg-gray-50 transition-all flex items-center justify-center gap-3"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
               <Phone className="w-6 h-6" />
               Speak to Experts
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
       </section>
 
-      {/* STORY */}
+      {/* Story Section */}
       <section className="py-24 px-6 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#001F5B]">
-              Built on <span className="text-[#E30613]">Precision</span>,<br />
-              Trusted by <span className="text-[#E30613]">India's Best</span>
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-900">
+              Built on <span className="text-red-600">Precision</span>,
+              <br className="md:hidden" /> Trusted by <span className="text-red-600">India's Best</span>
             </h2>
             <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
-              Three decades of excellence serving ISRO, DRDO, HAL, BHEL, DMRL and 100+ institutions.
+              Serving ISRO, DRDO, HAL, BHEL, DMRL and 100+ institutions.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                Founded in <span className="text-[#E30613] font-bold">April 1992</span>, Metsonic Engineers began with a mission to deliver precision testing technology to India.
-              </p>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                Today we represent global leaders from Korea, China, Singapore, and Europe—bringing world-class NDT solutions to critical sectors.
-              </p>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                Serving <b className="text-[#001F5B]">ISRO, DRDO, HAL, BHEL, DMRL</b> and over <b className="text-[#E30613]">100 organizations</b>.
-              </p>
-            </div>
+            <motion.div 
+              className="space-y-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              {[
+                "Founded in April 1992, Metsonic Engineers began delivering precision testing technology across India.",
+                "Today we represent leading manufacturers from Korea, China & Singapore, bringing cutting-edge technology to the Indian market.",
+                "Proud supplier to ISRO, DRDO, HAL, BHEL and 100+ organizations across Defence, Research, and Industrial sectors."
+              ].map((text, i) => (
+                <motion.p 
+                  key={i}
+                  variants={fadeInUp}
+                  className="text-lg md:text-xl text-gray-700 leading-relaxed"
+                >
+                  {i === 0 && <>Founded in <span className="text-red-600 font-bold">April 1992</span>, Metsonic Engineers began delivering precision testing technology across India.</>}
+                  {i === 1 && text}
+                  {i === 2 && <>Proud supplier to <b className="text-blue-900">ISRO, DRDO, HAL, BHEL</b> and <b className="text-red-600">100+ organizations</b> across Defence, Research, and Industrial sectors.</>}
+                </motion.p>
+              ))}
 
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-                <img
-                  src="download.jpeg"
-                  alt="Metsonic Engineers"
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-[#E30613]/10 rounded-full blur-3xl" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
-      <section className="py-20 px-6 lg:px-12 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#001F5B]">
-              Why Industry Leaders Choose <span className="text-[#E30613]">Metsonic</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Award, title: "30+ Years Excellence", desc: "Three decades of proven expertise" },
-              { icon: Users, title: "100+ Trusted Clients", desc: "Serving Defence, Research & Industry" },
-              { icon: Zap, title: "24/7 Support", desc: "Round-the-clock technical assistance" },
-              { icon: Shield, title: "ISO Certified", desc: "Quality assured products & services" },
-            ].map((item, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-[#E30613] hover:shadow-xl transition-all duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-[#E30613] to-red-600 rounded-2xl flex items-center justify-center mb-6">
-                  <item.icon className="w-9 h-9 text-white" />
+              <motion.div className="flex flex-wrap gap-4 pt-4" variants={fadeInUp}>
+                <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-lg border border-blue-200">
+                  <Globe className="w-5 h-5 text-blue-600" />
+                  <span className="font-semibold text-blue-900">Global Partnerships</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#001F5B] mb-3">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                <div className="flex items-center gap-2 px-4 py-2 bg-red-50 rounded-lg border border-red-200">
+                  <Target className="w-5 h-5 text-red-600" />
+                  <span className="font-semibold text-red-600">Precision Focus</span>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-xl">
+                <img src="download.jpeg" alt="Metsonic Engineers Laboratory" className="w-full h-auto" />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
               </div>
-            ))}
+
+              <motion.div 
+                className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+              >
+                <div className="text-4xl font-bold text-red-600 mb-2">30+</div>
+                <p className="text-sm text-gray-600 font-semibold">Years Experience</p>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ======================== */}
-      {/* DESKTOP: HORIZONTAL TIMELINE */}
-      {/* MOBILE: VERTICAL TIMELINE */}
-      {/* ======================== */}
-      <section id="journey" className="py-16 md:py-24 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      {/* Why Choose Us */}
+      <section className="py-20 px-6 lg:px-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
+          <motion.div className="text-center mb-16" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+              Why Industry Leaders Choose <span className="text-red-600">Metsonic</span>
+            </h2>
+            <p className="text-xl text-gray-600">Excellence backed by three decades of proven results</p>
+          </motion.div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#001F5B] mb-12 md:mb-20 px-4">
-            The Metsonic <span className="text-[#E30613]">Journey</span>
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {[
+              { icon: Award, title: "30+ Years Excellence", desc: "Three decades of proven expertise", color: "from-red-500 to-red-600" },
+              { icon: Users, title: "100+ Clients", desc: "Serving Defence & Research", color: "from-blue-600 to-blue-700" },
+              { icon: Zap, title: "24/7 Support", desc: "Round-the-clock assistance", color: "from-red-500 to-red-600" },
+              { icon: Shield, title: "ISO Certified", desc: "Quality-assured products", color: "from-blue-600 to-blue-700" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="bg-white p-8 rounded-2xl border-2 border-gray-100 
+                         hover:border-red-400 
+                         shadow-md hover:shadow-lg 
+                         transition-all duration-300"
+              >
+                <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center mb-6 shadow-md`}>
+                  <item.icon className="w-9 h-9 text-white" strokeWidth={2} />
+                </div>
+                <h3 className="text-xl font-bold text-blue-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Journey Timeline */}
+      <section id="journey" className="py-24 px-6 lg:px-12 bg-white">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-blue-900 mb-4">
+            The Metsonic <span className="text-red-600">Journey</span>
           </h2>
+          <p className="text-center text-gray-600 text-lg mb-16">Three decades of innovation and excellence</p>
+        </motion.div>
 
-          {/* MOBILE VERTICAL TIMELINE */}
-          <div className="md:hidden space-y-8">
+        {/* Desktop Timeline */}
+        <div className="hidden md:block max-w-7xl mx-auto">
+          <motion.div className="grid grid-cols-3 gap-10" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {timeline.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="relative pl-8"
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative"
               >
-                {/* Vertical Line */}
-                {i !== timeline.length - 1 && (
-                  <div className="absolute left-[11px] top-12 bottom-0 w-0.5 bg-gradient-to-b from-[#E30613] to-[#001F5B]"></div>
-                )}
-                
-                {/* Dot */}
-                <div className="absolute left-0 top-4 w-6 h-6 bg-white border-4 border-[#E30613] rounded-full z-10"></div>
-
-                {/* Card */}
-                <div className="bg-white rounded-xl shadow-lg border-2 border-gray-100 p-6 hover:shadow-xl hover:border-[#E30613] transition-all duration-300">
-                  <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#E30613] to-red-600 text-white font-bold text-xl rounded-lg shadow-md mb-3">
-                    {item.year}
+                <div className="bg-white rounded-2xl shadow-md border-2 border-gray-100 p-8 
+                              hover:border-red-400 hover:shadow-lg transition-all duration-300 h-full">
+                  <div className="text-center mb-6">
+                    <div className="inline-block px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-2xl rounded-xl shadow-md">
+                      {item.year}
+                    </div>
                   </div>
-                  <h4 className="text-lg font-bold text-[#001F5B] mb-2">{item.title}</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                  <h4 className="text-xl font-bold text-blue-900 mb-3 text-center">{item.title}</h4>
+                  <p className="text-gray-600 text-center leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </div>
 
-          {/* DESKTOP HORIZONTAL TIMELINE */}
-          <div className="hidden md:block relative px-4 lg:px-8">
-            {/* Horizontal Line */}
-            <div className="absolute top-[92px] left-8 right-8 h-1 bg-gradient-to-r from-[#001F5B] via-[#E30613] to-[#001F5B]"></div>
+        {/* Mobile Timeline */}
+        <div className="md:hidden max-w-2xl mx-auto space-y-8">
+          {timeline.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="relative pl-14"
+            >
+              {i < timeline.length - 1 && (
+                <div className="absolute left-7 top-16 bottom-0 w-0.5 bg-gray-200"></div>
+              )}
+              <div className="absolute left-3 top-4 w-7 h-7 bg-red-600 rounded-full border-4 border-white shadow-md"></div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 lg:gap-x-8 lg:gap-y-16">
-              {timeline.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  {/* Connecting Dot */}
-                  <div className="absolute top-[84px] left-1/2 -translate-x-1/2 w-6 h-6 bg-white border-4 border-[#E30613] rounded-full z-10 shadow-lg"></div>
-
-                  {/* Card */}
-                  <div className="bg-white rounded-2xl shadow-xl border-2 border-gray-100 p-6 lg:p-8 hover:shadow-2xl hover:border-[#E30613] hover:scale-[1.02] transition-all duration-300 h-full">
-                    <div className="text-center mb-4">
-                      <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#E30613] to-red-600 text-white font-bold text-2xl rounded-lg shadow-lg">
-                        {item.year}
-                      </div>
-                    </div>
-                    <h4 className="text-xl font-bold text-[#001F5B] mb-3 text-center">{item.title}</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed text-center">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="bg-white rounded-2xl shadow-md border border-gray-200 p-6 
+                         hover:border-red-400 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="inline-block px-5 py-2 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-lg rounded-lg mb-3 shadow-md">
+                  {item.year}
+                </div>
+                <h4 className="text-lg font-bold text-blue-900 mb-2">{item.title}</h4>
+                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-12 bg-white">
+      {/* Final CTA */}
+      <section className="py-20 px-6 lg:px-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-5xl mx-auto">
-          
-          {/* Main CTA Card */}
-          <div className="bg-gradient-to-br from-[#001F5B] to-[#001A4A] rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16 text-center text-white relative overflow-hidden">
-            
-            {/* Subtle background decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#E30613]/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#E30613]/10 rounded-full blur-3xl"></div>
-            
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Let's Work Together
-              </h2>
-              <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                Join 100+ organizations trusting Metsonic for precision testing solutions
+          <motion.div 
+            className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 rounded-3xl shadow-xl p-12 text-center text-white relative overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <motion.div 
+              className="absolute top-0 right-0 w-72 h-72 bg-red-500/20 rounded-full blur-3xl"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
+              transition={{ duration: 6, repeat: Infinity }}
+            />
+
+            <div className="relative">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
+              <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Join 100+ organizations trusting Metsonic for precision testing solutions.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a
+                <motion.a
                   href="tel:+919490167002"
-                  className="group px-8 py-4 bg-white text-[#001F5B] font-bold text-lg rounded-xl hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+                  className="px-8 py-4 bg-white text-blue-900 font-bold text-lg rounded-xl shadow-lg hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                  <Phone className="w-5 h-5" />
                   Call Us
-                </a>
-                <a
+                </motion.a>
+
+                <motion.a
                   href="mailto:metsonic.engineers@gmail.com"
-                  className="px-8 py-4 bg-[#E30613] text-white font-bold text-lg rounded-xl hover:bg-[#c50511] transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+                  className="px-8 py-4 bg-red-600 text-white font-bold text-lg rounded-xl shadow-lg hover:bg-red-700 transition-all flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Mail className="w-5 h-5" />
                   Send Enquiry
-                </a>
+                </motion.a>
               </div>
 
-              <div className="flex items-center justify-center gap-2 text-white/70 text-sm">
+              <div className="flex items-center justify-center gap-2 text-blue-200 text-sm">
                 <MapPin className="w-4 h-4" />
                 <span>Secunderabad, Telangana • Trusted Since 1992</span>
               </div>
             </div>
-          </div>
-
-          {/* Contact Info Cards */}
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
-            <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-100 hover:border-[#E30613] transition-all">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#E30613]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-[#E30613]" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-[#001F5B] mb-1">Call Us</h3>
-                  <a href="tel:+919490167002" className="text-gray-700 hover:text-[#E30613] transition-colors">
-                    +91 94901 67002
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-100 hover:border-[#E30613] transition-all">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#E30613]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-[#E30613]" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-[#001F5B] mb-1">Email Us</h3>
-                  <a href="mailto:metsonic.engineers@gmail.com" className="text-gray-700 hover:text-[#E30613] transition-colors break-all">
-                    metsonic.engineers@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          </motion.div>
         </div>
       </section>
     </div>

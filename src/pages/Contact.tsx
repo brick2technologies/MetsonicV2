@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Send, CheckCircle, Award, Users, Zap, Shield, Package, TestTube, Radio, ArrowRight, Star } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Send,
+  CheckCircle,
+  Award,
+  Users,
+  Zap,
+  Shield,
+  Package,
+  TestTube,
+  Radio,
+  ArrowRight,
+  Star,
+} from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -13,7 +28,9 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -23,7 +40,14 @@ export default function ContactPage() {
     setTimeout(() => {
       setStatus("success");
       setTimeout(() => setStatus("idle"), 3000);
-      setFormData({ name: "", email: "", phone: "", company: "", productInterest: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        productInterest: "",
+        message: "",
+      });
     }, 1500);
   };
 
@@ -31,7 +55,7 @@ export default function ContactPage() {
     { icon: Award, title: "30+ Years Excellence", desc: "Three decades of proven expertise in industrial testing" },
     { icon: Users, title: "100+ Happy Clients", desc: "Trusted by Defence, Research & Industrial sectors" },
     { icon: Zap, title: "24/7 Support", desc: "Round-the-clock technical assistance" },
-    { icon: Shield, title: "ISO Certified", desc: "Quality assured products and services" }
+    { icon: Shield, title: "ISO Certified", desc: "Quality assured products and services" },
   ];
 
   const productCategories = [
@@ -44,46 +68,41 @@ export default function ContactPage() {
   const testimonials = [
     { name: "BHEL", role: "Power Sector", text: "Reliable equipment and excellent after-sales support", rating: 5 },
     { name: "DRDO", role: "Defence Research", text: "High precision instruments that meet our stringent requirements", rating: 5 },
-    { name: "HAL", role: "Aerospace", text: "Partnership of over 15 years, consistently delivering quality", rating: 5 }
+    { name: "HAL", role: "Aerospace", text: "Partnership of over 15 years, consistently delivering quality", rating: 5 },
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Value Proposition */}
+      {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 lg:px-12 bg-gradient-to-br from-blue-50 via-white to-red-50 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-100 rounded-full blur-3xl opacity-30"></div>
-        
+
         <div className="relative max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-6">
               Transform Your Testing <span className="text-red-600">Capabilities Today</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Join 100+ leading organizations across Defence, Research, and Industrial sectors. 
-              Get expert consultation and discover equipment that delivers precision, reliability, and ROI.
+              Join 100+ leading organizations across Defence, Research, and Industrial sectors. Get expert consultation
+              and discover equipment that delivers precision, reliability, and ROI.
             </p>
           </motion.div>
 
-          {/* Stats Banner */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.2 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
             {[
               { value: "30+", label: "Years in Business" },
               { value: "100+", label: "Satisfied Clients" },
               { value: "500+", label: "Projects Delivered" },
-              { value: "24/7", label: "Support Available" }
+              { value: "24/7", label: "Support Available" },
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100">
+              <div key={idx} className="bg-white rounded-2xl p-6 text-center shadow-md border border-gray-100">
                 <div className="text-3xl font-bold text-red-600 mb-2">{stat.value}</div>
                 <p className="text-sm text-gray-600 font-medium">{stat.label}</p>
               </div>
@@ -115,9 +134,10 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+                whileHover={{ y: -8 }}
+                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-red-400 shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-6 shadow-md">
                   <item.icon className="w-8 h-8 text-white" strokeWidth={2} />
                 </div>
                 <h3 className="text-xl font-bold text-blue-900 mb-3">{item.title}</h3>
@@ -143,7 +163,7 @@ export default function ContactPage() {
             <p className="text-xl text-gray-600">Comprehensive testing solutions for every industry need</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-8">
             {productCategories.map((product, idx) => (
               <motion.div
                 key={idx}
@@ -151,7 +171,8 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-red-300 transition-all duration-300 group cursor-pointer"
+                whileHover={{ y: -6 }}
+                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-red-400 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer group"
               >
                 <div className="flex items-start gap-6">
                   <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-red-50 transition-colors">
@@ -199,7 +220,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-gray-200"
+                className="bg-white p-8 rounded-2xl border-2 border-gray-100 shadow-md"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -217,7 +238,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Contact Form */}
       <section className="py-20 px-6 lg:px-12 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -229,17 +250,14 @@ export default function ContactPage() {
             <h2 className="text-4xl font-bold text-white mb-4">
               Ready to Upgrade Your Testing Equipment?
             </h2>
-            <p className="text-xl text-blue-100">Fill out the form below and our experts will reach out within 4 hours</p>
+            <p className="text-xl text-blue-100">
+              Fill out the form below and our experts will reach out within 4 hours
+            </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left: Benefits */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            {/* Benefits */}
+            <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 <h3 className="text-xl font-bold text-white mb-4">What happens next?</h3>
                 <ul className="space-y-4">
@@ -248,7 +266,7 @@ export default function ContactPage() {
                     "Free consultation on your testing requirements",
                     "Custom solution recommendations",
                     "Competitive pricing and demo options",
-                    "Complete technical support included"
+                    "Complete technical support included",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-blue-100">
                       <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -268,67 +286,40 @@ export default function ContactPage() {
                 </a>
                 <p className="text-blue-100 text-sm mt-2">Available Mon-Sat, 9 AM - 6 PM</p>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Right: Form */}
+            {/* Form */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-2xl"
+              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
             >
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Email Address *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="john@company.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Phone Number *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="+91 98765 43210"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Company Name *</label>
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder="Your Company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
+                {["name", "email", "phone", "company"].map((field) => (
+                  <div key={field}>
+                    <label className="block text-sm font-bold text-gray-700 mb-2 capitalize">
+                      {field === "email" ? "Email Address" : field.replace(/([A-Z])/g, " $1")} *
+                    </label>
+                    <input
+                      type={field === "email" ? "email" : field === "phone" ? "tel" : "text"}
+                      name={field}
+                      placeholder={
+                        field === "name"
+                          ? "John Doe"
+                          : field === "email"
+                          ? "john@company.com"
+                          : field === "phone"
+                          ? "+91 98765 43210"
+                          : "Your Company"
+                      }
+                      value={formData[field as keyof typeof formData]}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+                    />
+                  </div>
+                ))}
 
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Product Interest *</label>
@@ -369,7 +360,7 @@ export default function ContactPage() {
                       ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                       : status === "success"
                       ? "bg-green-600 text-white"
-                      : "bg-gradient-to-r from-red-600 to-red-500 text-white hover:shadow-2xl hover:scale-105"
+                      : "bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-700 hover:to-red-600"
                   }`}
                 >
                   {status === "sending" ? (
@@ -406,7 +397,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-blue-900 mb-2">Metsonic Engineers Pvt. Ltd.</h3>
                     <p className="text-gray-700 leading-relaxed">
-                      63, ishaq Colony, Wellington Road<br />
+                      63, Ishaq Colony, Wellington Road<br />
                       Secunderabad, Telangana – 500015<br />
                       India
                     </p>
@@ -425,7 +416,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 h-[400px]">
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 h-[400px]">
               <iframe
                 title="Metsonic Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.103444235851!2d78.50390107481884!3d17.454762300861397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9a46d5ee9767%3A0xb7e91dcbaed21ceb!2sMETSONIC%20ENGINEERS%20PVT%20LTD!5e0!3m2!1sen!2sin!4v1763719602893!5m2!1sen!2sin"

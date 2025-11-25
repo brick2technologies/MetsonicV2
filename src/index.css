@@ -4,89 +4,59 @@
 
 @font-face {
   font-family: "Engebrechtre";
-  src: url("./assets/fonts/engebrecht/Engebrechtre-Rg.otf") format("opentype");
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Rg.otf");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Engebrechtre";
-  src: url("./assets/fonts/engebrecht/Engebrechtre-Rg-It.otf") format("opentype");
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Rg-It.otf");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Engebrechtre";
-  src: url("./assets/fonts/engebrecht/Engebrechtre-Bd.otf") format("opentype");
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Bd.otf");
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Engebrechtre";
-  src: url("./assets/fonts/engebrecht/Engebrechtre-Bd-It.otf") format("opentype");
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Bd-It.otf");
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Engebrechtre";
-  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex.otf") format("opentype");
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex.otf");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "Engebrechtre";
-  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-It.otf") format("opentype");
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-It.otf");
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Engebrechtre";
-  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-Bd.otf") format("opentype");
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-Bd.otf");
   font-weight: 800;
 }
 
 @font-face {
   font-family: "Engebrechtre";
-  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-Bd-It.otf") format("opentype");
+  src: url("./assets/fonts/engebrecht/Engebrechtre-Ex-Bd-It.otf");
   font-weight: 800;
   font-style: italic;
 }
 
-
-/* Load Tailwind AFTER fonts */
+/* Load Tailwind AFTER the fonts */
 @import "tailwindcss";
 
-/* ====================== */
-/*  Set Global Font       */
-/* ====================== */
 body {
   font-family: "Engebrechtre", sans-serif;
-}
-
-
-@keyframes metallicShine {
-  0% {
-    background-position: 200% center;
-  }
-  100% {
-    background-position: -200% center;
-  }
-}
-
-.animate-metallic-text {
-  animation: metallicShine 5s linear infinite;
-}
-
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 6s ease infinite;
 }

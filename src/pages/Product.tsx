@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {  Phone, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 // ---------- 1. Product type ----------
 type Product = {
@@ -377,7 +377,7 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-600 via-red-700 to-red-900 text-white py-20 px-6 overflow-hidden">
+      <section className=" top-16 relative bg-gradient-to-br from-red-600 via-red-700 to-red-900 text-white py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Products</h1>
@@ -400,13 +400,14 @@ export default function ProductsPage() {
               {group.products.map((product) => (
                 <div
                   key={product.id}
-                  className="flip-card h-[420px] sm:h-[460px] md:h-[500px] cursor-pointer"
+                  className="flip-card h-[350px] sm:h-[380px] md:h-[420px] cursor-pointer"
                   style={{ perspective: "1000px" }}
                 >
                   <div className="flip-card-inner relative w-full h-full transition-transform duration-700">
-                    {/* Front of Card */}
+
+                    {/* Front */}
                     <div className="flip-card-front absolute inset-0 bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-                      <div className="h-40 sm:h-48 overflow-hidden bg-gray-100">
+                      <div className="h-44 sm:h-52 overflow-hidden bg-gray-100">
                         <img
                           src={product.image}
                           alt={product.name}
@@ -417,55 +418,58 @@ export default function ProductsPage() {
                         <span className="inline-block px-2 sm:px-3 py-1 bg-red-100 text-red-600 text-[10px] sm:text-xs font-semibold rounded-full mb-2 sm:mb-3">
                           {product.category.split(" ")[0]}
                         </span>
-                        <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-2 line-clamp-2">
                           {product.name}
                         </h3>
-                        <p className="text-gray-600 text-xs sm:text-sm line-clamp-3 sm:line-clamp-4">
+                        <p className="text-gray-600 text-xs sm:text-sm line-clamp-2">
                           {product.description}
                         </p>
                       </div>
                     </div>
 
-                    {/* Back of Card */}
+                    {/* Back */}
                     <div className="flip-card-back absolute inset-0 bg-gradient-to-br from-red-600 to-red-800 rounded-xl md:rounded-2xl shadow-2xl p-3 sm:p-4 md:p-6 text-white flex flex-col">
-                      <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 sm:mb-3 line-clamp-2">
+                      <h3 className="text-sm sm:text-base md:text-lg font-bold mb-2 line-clamp-2">
                         {product.name}
                       </h3>
                       <div className="flex-1 overflow-hidden">
-                        <div className="mb-3 sm:mb-4">
-                          <h4 className="font-semibold text-red-100 mb-1 sm:mb-2 text-xs sm:text-sm">
+                        <div className="mb-2 sm:mb-3">
+                          <h4 className="font-semibold text-red-100 mb-1 text-xs sm:text-sm">
                             Key Features:
                           </h4>
-                          <ul className="space-y-0.5 sm:space-y-1 text-[10px] sm:text-xs">
+                          <ul className="space-y-0.5 text-[10px] sm:text-xs">
                             {product.features.map((feature, idx) => (
                               <li key={idx} className="flex items-start">
-                                <span className="text-red-300 mr-1 sm:mr-2 flex-shrink-0">•</span>
-                                <span className="line-clamp-2">{feature}</span>
+                                <span className="text-red-300 mr-1">•</span>
+                                <span className="line-clamp-1">{feature}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
+
                         <div>
-                          <h4 className="font-semibold text-red-100 mb-1 sm:mb-2 text-xs sm:text-sm">
+                          <h4 className="font-semibold text-red-100 mb-1 text-xs sm:text-sm">
                             Specifications:
                           </h4>
-                          <ul className="space-y-0.5 sm:space-y-1 text-[10px] sm:text-xs">
+                          <ul className="space-y-0.5 text-[10px] sm:text-xs">
                             {product.specs.map((spec, idx) => (
                               <li key={idx} className="flex items-start">
-                                <span className="text-red-300 mr-1 sm:mr-2 flex-shrink-0">•</span>
+                                <span className="text-red-300 mr-1">•</span>
                                 <span className="line-clamp-1">{spec}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       </div>
+
                       <button
                         onClick={() => setSelectedProduct(product)}
-                        className="mt-3 sm:mt-4 w-full bg-white text-red-600 py-2 sm:py-2.5 md:py-3 rounded-lg md:rounded-xl font-bold hover:bg-red-50 transition-colors text-xs sm:text-sm md:text-base"
+                        className="mt-3 w-full bg-white text-red-600 py-2 rounded-lg font-bold hover:bg-red-50 transition-colors text-xs sm:text-sm md:text-base"
                       >
                         Request Quote
                       </button>
                     </div>
+
                   </div>
                 </div>
               ))}
@@ -474,10 +478,11 @@ export default function ProductsPage() {
         ))}
       </section>
 
+
       {/* Product Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full my-8 relative max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto scrollbar-hide">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full my-8 relative max-h-[90vh] overflow-y-auto scrollbar-hide">
             <button
               onClick={() => setSelectedProduct(null)}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10 bg-white rounded-full p-2 shadow-lg"
@@ -501,20 +506,13 @@ export default function ProductsPage() {
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                   {selectedProduct.name}
                 </h2>
-                <p className="text-gray-600 mb-6">
-                  {selectedProduct.description}
-                </p>
+                <p className="text-gray-600 mb-6">{selectedProduct.description}</p>
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Key Features
-                  </h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Key Features</h3>
                   <ul className="space-y-2">
                     {selectedProduct.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start text-gray-700 text-sm"
-                      >
+                      <li key={idx} className="flex items-start text-gray-700 text-sm">
                         <span className="text-red-600 mr-2 font-bold">✓</span>
                         {feature}
                       </li>
@@ -523,15 +521,10 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    Specifications
-                  </h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Specifications</h3>
                   <ul className="space-y-2">
                     {selectedProduct.specs.map((spec, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start text-gray-700 text-sm"
-                      >
+                      <li key={idx} className="flex items-start text-gray-700 text-sm">
                         <span className="text-red-600 mr-2">•</span>
                         {spec}
                       </li>
@@ -555,6 +548,7 @@ export default function ProductsPage() {
           </div>
         </div>
       )}
+
 
       {/* Stats Section */}
       <section className="bg-gradient-to-br from-red-600 to-red-800 text-white py-16 px-6">
